@@ -305,6 +305,8 @@ export class Duel {
         if (this.firstTick < 0) this.firstTick = m.k;
         this.lastTick = m.k;
         this.lastSnapAt = now;
+        // a fresh snapshot = the host is back (the transport re-links by itself while both stay in the room)
+        this.peerLostAt = null;
         this.snapsReceived += 1;
         this.snaps.push({ at: now, s: m });
         if (this.snaps.length > 30) this.snaps.shift();

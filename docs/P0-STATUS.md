@@ -157,3 +157,7 @@ P0 не является полной кампанией. Сделаны одн�
 - NFT mint offered only for achievements the account has (the site-frame → new-tab path now relies on the cloud save, not on the ?mint param).
 - Verified: unit 63/63; local e2e mission 20/20, campaign 17/17, missions 29/29, duel 20/20, mobile 14/14, nft (fake wallet) 6/6, cloud round trip vs the real iDos DEV backend 2/2 (wipe local → reload → progress back); hosted (prod config) smoke 9/9, armory 6/6; deployed and re-checked live 9/9 + 6/6. The cloud e2e can't run on hosted builds (no dev hook there).
 - v16 deployed earlier the same day (`bldfbba9caad0d743feaf6b576f65c7a40b`); on-chain read 2026-10-08: the owner wallet has made NO NYCARGO deposit to iDos yet (only the 2026-10-07 purchase).
+
+## 2026-10-08 — переподключение (без новой сборки)
+- Проверено на настоящем транспорте: `e2e/relink.mjs` посреди матча закрывает RTCPeerConnection гостя (оба остаются в комнате) → транспорт iDos сам восстанавливает канал за 4,2 с, снимки идут, через 11 с матч продолжается у обоих, ввод гостя снова двигает байк — 10/10.
+- Дуэль уже ждёт до 10 с после `peerClose` и снимает отметку на `peerOpen`; дополнительно отметка теперь снимается и на первом снимке у гостя (страховка, поведение не меняет). Модульный тест «временный обрыв» — vitest 64/64.

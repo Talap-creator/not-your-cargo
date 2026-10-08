@@ -104,6 +104,17 @@ export class MemoryLink implements Link {
       p.ml.forEach((f) => f(this.selfId));
     }
   }
+  /** Simulate a transient link drop while both stay in the room: both sides see peerClose, nothing
+   *  is delivered until `restore()`, then both see peerOpen (as the iDos transport re-links). */
+  blip(): void {
+    this.open = false;
+    this.pc.forEach((f) => f(this.peer!.selfId));
+    this.peer!.pc.forEach((f) => f(this.selfId));
+  }
+  restore(): void {
+    this.open = true;
+    this.connect();
+  }
   connect(): void {
     this.po.forEach((f) => f(this.peer!.selfId));
     this.peer!.po.forEach((f) => f(this.selfId));

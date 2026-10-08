@@ -65,7 +65,7 @@ End-to-end checks drive a real Chrome (`playwright-core`): `node e2e/campaign.mj
 
 ## Honest limits
 
-- PvP is a **private, unranked** mode: the host could be modified to cheat. No rewards depend on PvP results. Reconnect and host migration are not implemented — a lost host ends the match as "aborted".
+- PvP is a **private, unranked** mode: the host could be modified to cheat. No rewards depend on PvP results. A dropped WebRTC link re-connects by itself while both players stay in the room (tested: 4.2 s, match continues); leaving the room, closing the tab or more than 10 s of silence ends the match (host left → "aborted", guest left → technical win). Host migration and resuming after a page reload are not implemented.
 - Campaign progress, achievements and leaderboard scores are produced by the player's client, so they can be faked; nothing of monetary value depends on them. NFT souvenirs are therefore souvenirs.
 - Cross-device / cross-network play, real phones and human playtests are **not yet verified** — see [docs/VALIDATION.md](docs/VALIDATION.md).
 

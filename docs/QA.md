@@ -6,12 +6,13 @@ All automated runs: Windows 10, Chrome (system install) driven by `playwright-co
 
 | Suite | What it does | Result (v17) |
 |---|---|---|
-| `npm test` (vitest) | rules, missions, match, protocol, in-memory duel incl. 5 % loss, saves + cloud merge, crates, NFT instruction bytes | 63/63 |
+| `npm test` (vitest) | rules, missions, match, protocol, in-memory duel incl. 5 % loss and a transient link drop, saves + cloud merge, crates, NFT instruction bytes | 64/64 |
 | `npm run typecheck` / production build | | 0 errors / OK |
 | `e2e/campaign.mjs` | story → all 8 training steps with real keys/mouse → map → brief | 17/17 |
 | `e2e/mission.mjs` | C01 through the UI: pickup, ambush, locked station, three runs, win, save, unlock | 20/20 |
 | `e2e/missions.mjs` | C02–C05 through the UI incl. both C02 roads, convoy, station, boss | 29/29 |
 | `e2e/duel.mjs` | two isolated Chrome profiles (two guest accounts), real iDos room + WebRTC: invite, ready, countdown, contested pickup, host-confirmed hits, 3 deliveries, same result on both, rematch with new matchId/sides, guest leaves → host technical win, host leaves → guest "aborted" | 20/20 |
+| `e2e/relink.mjs` | real iDos room + WebRTC: mid-match the test closes the guest's RTCPeerConnection; both stay in the room | 10/10 — the transport re-linked in 4.2 s, snapshots resumed, no false abort 11 s later, guest input works again |
 | `e2e/mobile.mjs` | phone viewport, touch sticks/buttons, rotate prompt, menu fit | 14/14 |
 | `e2e/nft.mjs` | fake wallet records the tx it is asked to sign: mpl-core program, player = fee payer, asset pre-signed, refusal reported, metadata served | 6/6 |
 | `e2e/cloud.mjs` | real iDos backend: progress written to the account, local save wiped, reload → progress restored | 2/2 |

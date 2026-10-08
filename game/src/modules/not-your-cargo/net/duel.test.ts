@@ -147,6 +147,20 @@ describe("duel over a link", () => {
     expect(t).toBeLessThanOrEqual(10500);
   }, 30000);
 
+  it("a transient link drop (both still in the room) does not end the match once the link is back", async () => {
+    const e = setup();
+    await startMatch(e);
+    await e.run(4000);
+    expect(e.guest.phase).toBe("match");
+    e.gl.blip();
+    await e.run(3000); // 3 s without any packets
+    e.gl.restore();
+    await e.run(12000); // well past the 10 s watchdog after the drop
+    expect(e.host.phase).toBe("match");
+    expect(e.guest.phase).toBe("match");
+    expect(e.guest.result).toBeNull();
+  }, 30000);
+
   it("full match by deliveries, same result on both, rematch swaps sides and ignores old packets", async () => {
     const e = setup();
     await startMatch(e);
