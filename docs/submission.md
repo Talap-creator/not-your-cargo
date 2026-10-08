@@ -29,7 +29,7 @@ Drafts for the three forms (Colosseum, Superteam Earn, iDos). Check the real for
 | Project name | NOT YOUR CARGO |
 | Category | Gaming |
 | Play link | https://idosgames.com/app/QA0X2DY9/ |
-| Repo | [GitHub URL after publishing] |
+| Repo | https://github.com/Talap-creator/not-your-cargo |
 | Token | NYCARGO · `5RWFPAucUS9h4bx1ApTftAWc87jVMxzPTkZwVHSeidos` · Solana mainnet |
 | Blockchain / tools | Solana (SPL token, Metaplex Core), iDos Games SDK + MCP, Phaser 3, TypeScript, WebRTC |
 | Team | [names, roles, location — Kazakhstan track] |
