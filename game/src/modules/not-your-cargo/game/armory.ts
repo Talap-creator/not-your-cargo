@@ -10,6 +10,10 @@ export const CRATE_OPTION = "nyc";
 export const NYC_CURRENCY = "Main";
 export const LB_CAMPAIGN = "campaign_score";
 export const LB_DUELS = "duel_wins_weekly";
+/** Server-written top lists (title Runtime data, CloudCode nyc-ranking.js). */
+export const TOP_CAMPAIGN_KEY = "nyc_top_campaign";
+export const topDuelsKey = (ms = Date.now()) => `nyc_top_duels_${Math.floor((ms - 345600000) / 604800000)}`;
+export type MissionReport = { ok: boolean; error?: string; stars?: number; score?: number };
 
 export type Rarity = "Common" | "Rare" | "Epic" | "Legendary";
 export interface Paint {
@@ -118,27 +122,39 @@ export class Armory {
     return openPlatformWalletPanel();
   }
 
-  async submitCampaign(score: number): Promise<void> {
-    if (score > 0) await this.client.leaderboard.submitScore(LB_CAMPAIGN, score);
+  get userId(): string {
+    return this.client.auth.context?.userID ?? "";
   }
-  async submitDuelWin(): Promise<void> {
-    await this.client.leaderboard.submitScore(LB_DUELS, 1);
+  /** Display name in the server tops: no personal data, just a stable courier tag. */
+  get courierName(): string {
+    return `Courier-${this.userId.slice(0, 4).toUpperCase() || "NEW"}`;
   }
 
-  async top(id: string): Promise<TopEntry[] | string> {
-    const [top, mine] = await Promise.all([this.client.leaderboard.getLeaderboard(id), this.client.leaderboard.getMyProgress(id)]);
-    if (!top.ok) return top.error ?? top.reason;
-    const myId = this.client.auth.context?.userID;
-    const list = (top.data.TopUsers ?? []).slice(0, 20).map((u, i) => ({
-      rank: u.Rank ?? i + 1,
-      name: u.PublicProfile?.Username || `#${u.UserID.slice(-5)}`,
-      score: u.Score ?? 0,
-      me: u.UserID === myId,
-    }));
-    if (mine.ok && !list.some((e) => e.me)) {
-      const p = mine.data as { Score?: number | null; Rank?: number | null };
-      if (p.Score) list.push({ rank: p.Rank ?? 0, name: "—", score: p.Score, me: true });
+  /** Report a won mission; the SERVER checks order/timing, computes stars and updates the top. */
+  async reportMission(id: string, difficulty: string, time: number, hp: number): Promise<MissionReport> {
+    const r = await this.client.cloudCode.execute("nycMissionWon", { id, difficulty, time: Math.round(time), hp: Math.ceil(hp), name: this.courierName });
+    if (!r.ok) return { ok: false, error: r.error ?? r.reason };
+    if (r.data.Error) return { ok: false, error: r.data.Error.Error ?? "script error" };
+    return (r.data.FunctionResult as MissionReport) ?? { ok: false, error: "no result" };
+  }
+
+  /** Both players report; the server credits the winner only when the two reports agree. */
+  async reportDuel(matchId: string, opponent: string, winner: string): Promise<void> {
+    await this.client.cloudCode.execute("nycDuelResult", { matchId, opponent, winner, name: this.courierName });
+  }
+
+  /** A server-written top list (read-only for clients). */
+  async top(key: string): Promise<TopEntry[] | string> {
+    const r = await this.client.titleCustomData.getPublicTitleData(false);
+    if (!r.ok) return r.error ?? r.reason;
+    const raw = (r.data.Runtime as Record<string, { Value?: string }> | null | undefined)?.[key]?.Value;
+    let list: { u: string; n: string; s: number }[] = [];
+    try {
+      list = raw ? JSON.parse(raw) : [];
+    } catch {
+      list = [];
     }
-    return list;
+    const me = this.userId;
+    return list.slice(0, 20).map((e, i) => ({ rank: i + 1, name: String(e.n).slice(0, 20), score: Number(e.s) || 0, me: e.u === me }));
   }
 }

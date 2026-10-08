@@ -40,3 +40,23 @@ describe("armory", () => {
     expect(bad && "paint" in bad).toBe(false);
   });
 });
+
+describe("server-checked rankings (client side)", () => {
+  it("reads a server-written top list and marks the player; a broken value is an empty list", async () => {
+    const client = (v: string | null) =>
+      ({ auth: { context: { userID: "ME123" } }, titleCustomData: { getPublicTitleData: async () => ({ ok: true, data: { Runtime: v === null ? {} : { nyc_top_campaign: { Value: v } } } }) } }) as never;
+    const a = new Armory(client(JSON.stringify([{ u: "X", n: "Courier-X", s: 30 }, { u: "ME123", n: "Courier-ME12", s: 9 }])));
+    expect(await a.top("nyc_top_campaign")).toEqual([
+      { rank: 1, name: "Courier-X", score: 30, me: false },
+      { rank: 2, name: "Courier-ME12", score: 9, me: true },
+    ]);
+    expect(await new Armory(client("{not json")).top("nyc_top_campaign")).toEqual([]);
+  });
+
+  it("a mission report returns the server's verdict, not the client's", async () => {
+    const exec = vi.fn(async () => ({ ok: true, data: { FunctionResult: { ok: false, error: "too fast after the previous report" } } }));
+    const a = new Armory({ auth: { context: { userID: "ME" } }, cloudCode: { execute: exec } } as never);
+    expect(await a.reportMission("C02", "hard", 61.4, 79.2)).toEqual({ ok: false, error: "too fast after the previous report" });
+    expect(exec).toHaveBeenCalledWith("nycMissionWon", { id: "C02", difficulty: "hard", time: 61, hp: 80, name: "Courier-ME" });
+  });
+});

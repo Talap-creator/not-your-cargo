@@ -6,7 +6,7 @@ A browser top-down hover-bike shooter on [iDos Games](https://idosgames.com/app/
 
 - ▶️ Play: https://idosgames.com/app/QA0X2DY9/ (direct: https://qa0x2dy9.idos.games/)
 - Token: `5RWFPAucUS9h4bx1ApTftAWc87jVMxzPTkZwVHSeidos` (Solana mainnet, SPL, 6 decimals) · [Solscan](https://solscan.io/token/5RWFPAucUS9h4bx1ApTftAWc87jVMxzPTkZwVHSeidos)
-- iDos title: `QA0X2DY9` · live build v17 (`bldf1b408bdd5cc4df7b19a93b0fd06c6f2`)
+- iDos title: `QA0X2DY9` · live build v18 (`bld8290005154cc4f1ca1742bc6eae306f0`)
 
 > Русская версия описания — [docs/README.ru.md](docs/README.ru.md).
 
@@ -24,7 +24,7 @@ A browser top-down hover-bike shooter on [iDos Games](https://idosgames.com/app/
 | C04 | Station | Download nav data, grab the core, hold out 50 s in a blackout, evacuate |
 | C05 | Interceptor | Chase, boss fight (rocket fans + ram charges with telegraphed lines), final delivery |
 
-Three difficulties (Easy / Normal / Hard) per mission, 1–3 stars, four weapons unlocked along the way (machine gun, scatter shot, laser, rockets), dispatcher radio with dark humour, 24 achievements.
+Three difficulties (Easy / Normal / Hard) per mission, 1–3 stars, four weapons unlocked along the way (machine gun, scatter shot, laser, rockets), dispatcher radio with dark humour, 24 achievements, pixel-art sprites, and **server-checked rankings** (campaign and weekly duels).
 
 **PvP — «Cargo Intercept» 1v1.** Private room by code → both pick a weapon and Ready → 3 s countdown → one crate in the middle of a symmetric arena; take it (hold E), carry it home (hold E), first to 3 deliveries wins. 4-minute clock, sudden death, draw, rematch with swapped sides. It is a **real network match between two people** (iDos rooms + WebRTC), never a bot.
 
@@ -66,7 +66,7 @@ End-to-end checks drive a real Chrome (`playwright-core`): `node e2e/campaign.mj
 ## Honest limits
 
 - PvP is a **private, unranked** mode: the host could be modified to cheat. No rewards depend on PvP results. A dropped WebRTC link re-connects by itself while both players stay in the room (tested: 4.2 s, match continues); leaving the room, closing the tab or more than 10 s of silence ends the match (host left → "aborted", guest left → technical win). Host migration and resuming after a page reload are not implemented.
-- Campaign progress, achievements and leaderboard scores are produced by the player's client, so they can be faked; nothing of monetary value depends on them. NFT souvenirs are therefore souvenirs.
+- **Rankings are checked by the server (CloudCode):** campaign wins must come in mission order, take at least a realistic time and real time must pass between reports; the server computes the stars. A duel win counts only when **both** players report the same result (a pair is capped at 5 credited wins a day). A modified client can still play and report honestly-timed runs, and two colluding accounts can trade wins within the cap. Achievements stay client-side, so NFT souvenirs are souvenirs.
 - Cross-device / cross-network play, real phones and human playtests are **not yet verified** — see [docs/VALIDATION.md](docs/VALIDATION.md).
 
 ## Docs

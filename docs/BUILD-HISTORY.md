@@ -26,7 +26,8 @@ All code was written by AI agents under the owner's direction:
 | v14 | 10-08 | Hard retuned after an autopilot balance probe |
 | v15 | 10-08 | Longer missions (multi-run contracts), rocket anti-armour bonus |
 | v16 | 10-08 | Achievement NFT souvenirs (player-minted) — first version deployed live |
-| v17 | 10-08 | Cloud save (live) |
+| v17 | 10-08 | Cloud save |
+| v18 | 10-08 | Pixel-art sprites (Azure swarm, `assets/pixel/gen_pixel.py`), server-checked rankings (CloudCode `nycMissionWon`, `nycDuelResult`) — live |
 
 The day-by-day engineering log with every check is in [P0-STATUS.md](P0-STATUS.md) (Russian).
 

@@ -123,6 +123,12 @@ for (let run = 2; run <= 3; run++) {
 }
 s = await st();
 check("delivery → victory screen", s.mode === "mresult" && s.mission.phase === "won");
+{
+  const ok = await page.waitForFunction(() => /Сервер засчитал|не засчитано|Server verified|not counted/.test(document.querySelector(".nyc-overlay")?.textContent ?? ""), null, { timeout: 15000 }).then(() => true).catch(() => false);
+  const line = (await page.locator(".nyc-overlay").innerText()).split("\n").find((l) => /засчит|verified|counted/i.test(l)) ?? "";
+  // the e2e teleports through C01 in a few seconds — the server must NOT accept that time
+  check("result shows the server's verdict (a teleported run is refused)", ok && /не засчитано|not counted/.test(line), JSON.stringify(line));
+}
 check("C01 saved, scatter shot unlocked", s.save.completed.includes("C01") && s.save.weapons.includes("shotgun"));
 await page.screenshot({ path: "e2e/out/mission-won.png" });
 

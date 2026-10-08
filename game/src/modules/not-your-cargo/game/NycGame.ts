@@ -22,7 +22,7 @@ import type { TokenCosmetic } from "./token";
 import type { CloudSave } from "./cloud";
 import { browserWallet, mintAchievement, mintedSet } from "./nft";
 import { isEmbeddedInPlatform } from "@idosgames/wallet";
-import { campaignScore, LB_CAMPAIGN, LB_DUELS, PAINTS, paintById, RARITY_COLOR, type Armory, type TopEntry } from "./armory";
+import { campaignScore, TOP_CAMPAIGN_KEY, topDuelsKey, PAINTS, paintById, RARITY_COLOR, type Armory, type TopEntry } from "./armory";
 
 type Mode = "menu" | "story" | "training" | "tresult" | "campaign" | "brief" | "mission" | "paused" | "mresult" | "pvp" | "achievements" | "armory" | "ranks";
 type PlayMode = "mission" | "training";
@@ -92,7 +92,9 @@ export class NycGame {
   private mintAsk: string | null = null;
   private lastDrops: string[] = [];
   private cratePrice: number | null = null;
-  private ranks: { tab: string; list: TopEntry[] | string | null } = { tab: LB_CAMPAIGN, list: null };
+  private ranks: { tab: string; list: TopEntry[] | string | null } = { tab: TOP_CAMPAIGN_KEY, list: null };
+  /** what the server said about the last won mission (verified ranking) */
+  private verifyMsg = "";
   private tokenMsg = "";
   /** Equipped paint id, only if the server inventory confirms it. */
   get paintId(): string | null {
@@ -337,7 +339,10 @@ export class NycGame {
           const won = duel.result.winner === duel.mySide;
           this.audio.play(duel.result.outcome === "win" ? (won ? "win" : "lose") : "lose");
           if (duel.result.outcome !== "aborted") this.commit(recordDuel(this.save, duel.result.outcome === "win" && won));
-          if (duel.result.outcome === "win" && won) void this.deps.armory?.submitDuelWin().catch(() => undefined);
+          // both players report; the server credits the winner only if the two reports agree
+          const opp = duel.peerId;
+          if (duel.result.outcome === "win" && opp && this.deps.armory)
+            void this.deps.armory.reportDuel(duel.matchId, opp, won ? this.deps.armory.userId : opp).catch(() => undefined);
         }
         lastPhase = duel.phase;
         lastResult = r;
@@ -400,7 +405,18 @@ export class NycGame {
         if (s.phase !== "playing") {
           if (s.phase === "won") {
             this.commit(completeMission(this.save, s.id, stars(s), s.difficulty));
-            void this.deps.armory?.submitCampaign(campaignScore(this.save.stars, this.save.cleared)).catch(() => undefined);
+            this.verifyMsg = "";
+            void this.deps.armory
+              ?.reportMission(s.id, s.difficulty, s.time, s.player.hp)
+              .then((r) => {
+                const ru = this.lang === "ru";
+                this.verifyMsg = r.ok
+                  ? ru ? `✓ Сервер засчитал: ${r.stars}★, рейтинг ${r.score}` : `✓ Server verified: ${r.stars}★, ranking ${r.score}`
+                  : (ru ? "Проверенный рейтинг: не засчитано — " : "Verified ranking: not counted — ") + (ru ? (VERIFY_RU[r.error ?? ""] ?? r.error ?? "") : r.error ?? "");
+                this.screenKey = "";
+                this.render();
+              })
+              .catch(() => undefined);
             this.audio.play("win");
           } else this.audio.play("lose");
           this.setMode("mresult");
@@ -681,6 +697,7 @@ export class NycGame {
             text(won ? mt.win[this.lang] : this.t(convoy ? "convoyLostText" : "lostText")),
             ...(won ? [text(this.lang === "ru" ? "★ доставка · ★ в норму времени · ★ HP ≥ 50 на финише" : "★ delivered · ★ within par · ★ finish with HP ≥ 50", "nyc-help")] : []),
             text(stats, "nyc-muted"),
+            ...(won && this.verifyMsg ? [text(this.verifyMsg, this.verifyMsg.startsWith("✓") ? "nyc-ok" : "nyc-muted")] : []),
             button(this.t("retry"), () => this.startMission(), !won),
             button(this.t("campaignMap"), () => this.setMode("campaign"), won),
             button(this.t("toMenu"), () => this.setMode("menu")),
@@ -713,7 +730,7 @@ export class NycGame {
     const extra = el("div", "nyc-row");
     extra.append(
       button(`🏆 ${this.lang === "ru" ? "Достижения" : "Achievements"} ${got}/${ACHIEVEMENTS.length}`, () => this.setMode("achievements")),
-      button(`📊 ${this.lang === "ru" ? "Рейтинг" : "Ranking"}`, () => this.openRanks(LB_CAMPAIGN)),
+      button(`📊 ${this.lang === "ru" ? "Рейтинг" : "Ranking"}`, () => this.openRanks(TOP_CAMPAIGN_KEY)),
     );
     p.append(extra);
     if (this.deps.armory) p.append(button(`🎁 ${this.lang === "ru" ? "Кейсы и покраска" : "Crates & paint"}`, () => this.openArmory()));
@@ -1000,16 +1017,20 @@ export class NycGame {
     const ru = this.lang === "ru";
     const tabs = el("div", "nyc-row");
     tabs.append(
-      button(ru ? "Кампания" : "Campaign", () => this.openRanks(LB_CAMPAIGN), this.ranks.tab === LB_CAMPAIGN),
-      button(ru ? "Дуэли (неделя)" : "Duels (week)", () => this.openRanks(LB_DUELS), this.ranks.tab === LB_DUELS),
+      button(ru ? "Кампания" : "Campaign", () => this.openRanks(TOP_CAMPAIGN_KEY), this.ranks.tab === TOP_CAMPAIGN_KEY),
+      button(ru ? "Дуэли (неделя)" : "Duels (week)", () => this.openRanks(topDuelsKey()), this.ranks.tab !== TOP_CAMPAIGN_KEY),
     );
     const mine = campaignScore(this.save.stars, this.save.cleared);
     const items: HTMLElement[] = [
       tabs,
       text(
-        this.ranks.tab === LB_CAMPAIGN
-          ? ru ? `Очки: лучшие звёзды миссии × сложность (лёгкая 1, норма 2, хард 3). Твои: ${mine} из 45` : `Points: best mission stars × difficulty (easy 1, normal 2, hard 3). Yours: ${mine} of 45`
-          : ru ? "Победы в онлайн-дуэлях за эту неделю" : "Online duel wins this week",
+        this.ranks.tab === TOP_CAMPAIGN_KEY
+          ? ru
+            ? `✓ Проверено сервером: миссии по порядку, реальное время прохождения, звёзды считает сервер. Очки: звёзды × сложность (1/2/3), максимум 45. Локально у тебя: ${mine}`
+            : `✓ Server-checked: missions in order, real play time, stars computed by the server. Points: stars × difficulty (1/2/3), max 45. Your local total: ${mine}`
+          : ru
+            ? "✓ Проверено сервером: победа засчитывается, только когда оба игрока прислали один и тот же результат"
+            : "✓ Server-checked: a win counts only when both players report the same result",
         "nyc-muted",
       ),
     ];
@@ -1169,3 +1190,11 @@ function projectileCode(kind: string): number {
 function escapeHtml(s: string): string {
   return s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
 }
+
+/** Server refusals of the verified ranking, in Russian. */
+const VERIFY_RU: Record<string, string> = {
+  "previous mission not verified": "сначала пройди предыдущую миссию — рейтинг идёт по порядку",
+  "time not plausible": "слишком короткое время прохождения",
+  "hp not plausible": "неправдоподобное здоровье",
+  "too fast after the previous report": "слишком быстро после прошлой победы",
+};
