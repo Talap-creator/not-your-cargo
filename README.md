@@ -71,7 +71,7 @@ End-to-end checks drive a real Chrome (`playwright-core`): `node e2e/campaign.mj
 
 ## Docs
 
-[Spec (RU)](docs/TZ-STEPPE-RAIDERS.md) · [Build history](docs/BUILD-HISTORY.md) · [QA](docs/QA.md) · [Validation plan](docs/VALIDATION.md) · [Token](docs/TOKEN.md) · [Roadmap](docs/roadmap.md) · [Submission texts](docs/submission.md) · [Dev log (RU)](docs/P0-STATUS.md) · [Asset licenses](assets/ATTRIBUTION.md)
+[License: MIT (code)](LICENSE) · [Spec (RU)](docs/TZ-STEPPE-RAIDERS.md) · [Build history](docs/BUILD-HISTORY.md) · [QA](docs/QA.md) · [Validation plan](docs/VALIDATION.md) · [Token](docs/TOKEN.md) · [Roadmap](docs/roadmap.md) · [Submission texts](docs/submission.md) · [Dev log (RU)](docs/P0-STATUS.md) · [Asset licenses](assets/ATTRIBUTION.md)
 
 ## Team
 
