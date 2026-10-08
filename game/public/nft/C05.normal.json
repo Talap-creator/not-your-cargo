@@ -1,0 +1,26 @@
+{
+ "name": "NYC · C05 · Normal",
+ "symbol": "NYCACH",
+ "description": "NOT YOUR CARGO achievement souvenir: Beat C05 on Normal. Minted by the player. Achievements are tracked in the player's game client — a souvenir, not a proof.",
+ "image": "https://qa0x2dy9.idos.games/nft/C05.normal.png",
+ "external_url": "https://idosgames.com/app/QA0X2DY9/",
+ "attributes": [
+  {
+   "trait_type": "Achievement",
+   "value": "C05.normal"
+  },
+  {
+   "trait_type": "Tier",
+   "value": "NORMAL"
+  }
+ ],
+ "properties": {
+  "files": [
+   {
+    "uri": "https://qa0x2dy9.idos.games/nft/C05.normal.png",
+    "type": "image/png"
+   }
+  ],
+  "category": "image"
+ }
+}

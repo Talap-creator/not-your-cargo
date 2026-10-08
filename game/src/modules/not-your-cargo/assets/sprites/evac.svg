@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <g stroke="#1d1714" stroke-width="2" stroke-linejoin="miter" shape-rendering="crispEdges">
+    <!-- Open annulus and unfilled circle leave the landing area transparent. -->
+    <path fill="#2b2420" fill-rule="evenodd" d="M80 5A75 75 0 1 1 80 155A75 75 0 1 1 80 5ZM80 23A57 57 0 1 0 80 137A57 57 0 1 0 80 23Z"/>
+    <circle fill="none" stroke="#ff7a1a" stroke-width="12" stroke-dasharray="14 14.798" cx="80" cy="80" r="66"/>
+    <circle fill="none" cx="80" cy="80" r="73"/>
+    <circle fill="none" cx="80" cy="80" r="59"/>
+    <circle fill="none" stroke-width="6" cx="80" cy="80" r="46"/>
+    <circle fill="none" stroke="#f4ead8" cx="80" cy="80" r="46"/>
+    <path fill="#3b3330" d="M71 3H89V15H71ZM71 145H89V157H71ZM3 71H15V89H3ZM145 71H157V89H145Z"/>
+    <path stroke="#4fd18b" stroke-width="4" d="M75 9H85M75 151H85M9 75V85M151 75V85"/>
+    <path stroke="#c9a46a" d="M80 29V39M80 121V131M29 80H39M121 80H131"/>
+  </g>
+</svg>

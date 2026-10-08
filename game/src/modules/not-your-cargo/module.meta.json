@@ -1,0 +1,15 @@
+{
+  "id": "not-your-cargo",
+  "type": "template",
+  "summary": "Top-down hover-bike courier shooter: campaign mission C01 and a private host-authoritative 1v1 cargo duel over iDos rooms (WebRTC).",
+  "provides": [
+    "mission C01 First Delivery",
+    "machine gun and scatter shot",
+    "private 1v1 cargo interception duel",
+    "rematch with side swap"
+  ],
+  "tags": ["shooter", "top-down", "pvp", "multiplayer", "phaser"],
+  "author": { "name": "NOT YOUR CARGO team", "url": "https://idosgames.com/app/QA0X2DY9/" },
+  "version": "0.1.0",
+  "dependencies": { "phaser": "3.90.0" }
+}

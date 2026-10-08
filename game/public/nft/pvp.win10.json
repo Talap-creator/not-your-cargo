@@ -1,0 +1,26 @@
+{
+ "name": "NYC · 10 duel wins",
+ "symbol": "NYCACH",
+ "description": "NOT YOUR CARGO achievement souvenir: Win 10 online duels. Minted by the player. Achievements are tracked in the player's game client — a souvenir, not a proof.",
+ "image": "https://qa0x2dy9.idos.games/nft/pvp.win10.png",
+ "external_url": "https://idosgames.com/app/QA0X2DY9/",
+ "attributes": [
+  {
+   "trait_type": "Achievement",
+   "value": "pvp.win10"
+  },
+  {
+   "trait_type": "Tier",
+   "value": "PVP"
+  }
+ ],
+ "properties": {
+  "files": [
+   {
+    "uri": "https://qa0x2dy9.idos.games/nft/pvp.win10.png",
+    "type": "image/png"
+   }
+  ],
+  "category": "image"
+ }
+}

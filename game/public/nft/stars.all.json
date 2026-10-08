@@ -1,0 +1,26 @@
+{
+ "name": "NYC · Fifteen stars",
+ "symbol": "NYCACH",
+ "description": "NOT YOUR CARGO achievement souvenir: Three stars in every mission. Minted by the player. Achievements are tracked in the player's game client — a souvenir, not a proof.",
+ "image": "https://qa0x2dy9.idos.games/nft/stars.all.png",
+ "external_url": "https://idosgames.com/app/QA0X2DY9/",
+ "attributes": [
+  {
+   "trait_type": "Achievement",
+   "value": "stars.all"
+  },
+  {
+   "trait_type": "Tier",
+   "value": "HARD"
+  }
+ ],
+ "properties": {
+  "files": [
+   {
+    "uri": "https://qa0x2dy9.idos.games/nft/stars.all.png",
+    "type": "image/png"
+   }
+  ],
+  "category": "image"
+ }
+}

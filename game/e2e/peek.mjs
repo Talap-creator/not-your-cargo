@@ -1,0 +1,11 @@
+import { chromium } from "playwright-core";
+const b = await chromium.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
+const p = await (await b.newContext({ viewport: { width: 1366, height: 768 } })).newPage();
+await p.goto("http://localhost:5180/");
+await p.getByText("Play as guest").click();
+await p.waitForFunction(() => !!globalThis.__nyc, null, { timeout: 30000 });
+await p.getByRole("button", { name: /Дуэль 1×1|1v1 duel/ }).click();
+await p.waitForTimeout(1500);
+await p.screenshot({ path: "e2e/out/peek.png" });
+console.log((await p.locator("button").allInnerTexts()).join(" | "));
+await b.close();

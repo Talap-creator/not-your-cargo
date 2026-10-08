@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+  <!-- Flat overhead target plate; right-hand foot marks forward. -->
+  <g stroke="#1d1714" stroke-width="2">
+    <path fill="#3b3330" shape-rendering="crispEdges" d="M4 4H10V15H30V4H36V36H30V25H10V36H4Z"/>
+    <path fill="#c9a46a" shape-rendering="crispEdges" d="M28 17H35L38 20L35 23H28Z"/>
+    <circle cx="20" cy="20" r="16" fill="#7a2420"/>
+    <circle cx="20" cy="20" r="11" fill="#f4ead8"/>
+    <circle cx="20" cy="20" r="6" fill="#7a2420"/>
+  </g>
+  <path fill="#f4ead8" shape-rendering="crispEdges" d="M18 18H22V22H18Z"/>
+</svg>

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NOT YOUR CARGO — Sprite review</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 24px; background: #1d1714; color: #f4ead8; font: 16px/1.5 system-ui, sans-serif; }
+    main { max-width: 1200px; margin: auto; }
+    h1 { margin: 0; font-size: 28px; }
+    h2 { font-size: 16px; margin: 0 0 12px; overflow-wrap: anywhere; }
+    p { max-width: 78ch; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 20px; }
+    article { border: 2px solid #3b3330; padding: 16px; min-width: 0; }
+    .samples { display: flex; flex-wrap: wrap; gap: 12px; }
+    figure { margin: 0; max-width: 100%; }
+    figcaption { font-size: 12px; margin-top: 4px; }
+    .swatch { display: grid; place-items: center; padding: 12px; min-width: 100px; min-height: 80px; overflow: auto; }
+    .dark { background: #2b2420; }
+    .sand { background: #c9a46a; }
+    img { display: block; max-width: none; image-rendering: pixelated; }
+    .tiles { margin-top: 28px; }
+    .repeat { height: 512px; max-width: 100%; background-repeat: repeat; image-rendering: pixelated; border: 2px solid #1d1714; }
+    a { color: #3aa0ff; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>NOT YOUR CARGO — Original sprite review</h1>
+  <p>All 29 sprites at exactly 2× their viewBox dimensions (CSS pixels). Each appears on dark graphite and sand. Forward is right (+x); turret bearings use the off-center pivots documented in <a href="README.md">README.md</a>. No network resources required.</p>
+  <div class="grid">
+    <article>
+      <h2>bike_blue.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="bike_blue.svg" width="128" height="96" alt="bike blue on dark"></div><figcaption>Dark · #2b2420 — 128 × 96</figcaption></figure>
+        <figure><div class="swatch sand"><img src="bike_blue.svg" width="128" height="96" alt="bike blue on sand"></div><figcaption>Sand · #c9a46a — 128 × 96</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>bike_pink.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="bike_pink.svg" width="128" height="96" alt="bike pink on dark"></div><figcaption>Dark · #2b2420 — 128 × 96</figcaption></figure>
+        <figure><div class="swatch sand"><img src="bike_pink.svg" width="128" height="96" alt="bike pink on sand"></div><figcaption>Sand · #c9a46a — 128 × 96</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>turret_mg.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="turret_mg.svg" width="96" height="32" alt="turret mg on dark"></div><figcaption>Dark · #2b2420 — 96 × 32</figcaption></figure>
+        <figure><div class="swatch sand"><img src="turret_mg.svg" width="96" height="32" alt="turret mg on sand"></div><figcaption>Sand · #c9a46a — 96 × 32</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>turret_shotgun.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="turret_shotgun.svg" width="96" height="40" alt="turret shotgun on dark"></div><figcaption>Dark · #2b2420 — 96 × 40</figcaption></figure>
+        <figure><div class="swatch sand"><img src="turret_shotgun.svg" width="96" height="40" alt="turret shotgun on sand"></div><figcaption>Sand · #c9a46a — 96 × 40</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>raider.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="raider.svg" width="96" height="96" alt="raider on dark"></div><figcaption>Dark · #2b2420 — 96 × 96</figcaption></figure>
+        <figure><div class="swatch sand"><img src="raider.svg" width="96" height="96" alt="raider on sand"></div><figcaption>Sand · #c9a46a — 96 × 96</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>cargo.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="cargo.svg" width="64" height="64" alt="cargo on dark"></div><figcaption>Dark · #2b2420 — 64 × 64</figcaption></figure>
+        <figure><div class="swatch sand"><img src="cargo.svg" width="64" height="64" alt="cargo on sand"></div><figcaption>Sand · #c9a46a — 64 × 64</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>repair_kit.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="repair_kit.svg" width="64" height="64" alt="repair kit on dark"></div><figcaption>Dark · #2b2420 — 64 × 64</figcaption></figure>
+        <figure><div class="swatch sand"><img src="repair_kit.svg" width="64" height="64" alt="repair kit on sand"></div><figcaption>Sand · #c9a46a — 64 × 64</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>target.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="target.svg" width="80" height="80" alt="target on dark"></div><figcaption>Dark · #2b2420 — 80 × 80</figcaption></figure>
+        <figure><div class="swatch sand"><img src="target.svg" width="80" height="80" alt="target on sand"></div><figcaption>Sand · #c9a46a — 80 × 80</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>wall_block.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="wall_block.svg" width="128" height="128" alt="wall block on dark"></div><figcaption>Dark · #2b2420 — 128 × 128</figcaption></figure>
+        <figure><div class="swatch sand"><img src="wall_block.svg" width="128" height="128" alt="wall block on sand"></div><figcaption>Sand · #c9a46a — 128 × 128</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>ground_sand.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="ground_sand.svg" width="256" height="256" alt="ground sand on dark"></div><figcaption>Dark · #2b2420 — 256 × 256</figcaption></figure>
+        <figure><div class="swatch sand"><img src="ground_sand.svg" width="256" height="256" alt="ground sand on sand"></div><figcaption>Sand · #c9a46a — 256 × 256</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>ground_road.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="ground_road.svg" width="256" height="256" alt="ground road on dark"></div><figcaption>Dark · #2b2420 — 256 × 256</figcaption></figure>
+        <figure><div class="swatch sand"><img src="ground_road.svg" width="256" height="256" alt="ground road on sand"></div><figcaption>Sand · #c9a46a — 256 × 256</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>station.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="station.svg" width="320" height="320" alt="station on dark"></div><figcaption>Dark · #2b2420 — 320 × 320</figcaption></figure>
+        <figure><div class="swatch sand"><img src="station.svg" width="320" height="320" alt="station on sand"></div><figcaption>Sand · #c9a46a — 320 × 320</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>icon_mg.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="icon_mg.svg" width="48" height="48" alt="icon mg on dark"></div><figcaption>Dark · #2b2420 — 48 × 48</figcaption></figure>
+        <figure><div class="swatch sand"><img src="icon_mg.svg" width="48" height="48" alt="icon mg on sand"></div><figcaption>Sand · #c9a46a — 48 × 48</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>icon_shotgun.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="icon_shotgun.svg" width="48" height="48" alt="icon shotgun on dark"></div><figcaption>Dark · #2b2420 — 48 × 48</figcaption></figure>
+        <figure><div class="swatch sand"><img src="icon_shotgun.svg" width="48" height="48" alt="icon shotgun on sand"></div><figcaption>Sand · #c9a46a — 48 × 48</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>icon_dash.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="icon_dash.svg" width="48" height="48" alt="icon dash on dark"></div><figcaption>Dark · #2b2420 — 48 × 48</figcaption></figure>
+        <figure><div class="swatch sand"><img src="icon_dash.svg" width="48" height="48" alt="icon dash on sand"></div><figcaption>Sand · #c9a46a — 48 × 48</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>icon_cargo.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="icon_cargo.svg" width="48" height="48" alt="icon cargo on dark"></div><figcaption>Dark · #2b2420 — 48 × 48</figcaption></figure>
+        <figure><div class="swatch sand"><img src="icon_cargo.svg" width="48" height="48" alt="icon cargo on sand"></div><figcaption>Sand · #c9a46a — 48 × 48</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>icon_hp.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="icon_hp.svg" width="48" height="48" alt="icon hp on dark"></div><figcaption>Dark · #2b2420 — 48 × 48</figcaption></figure>
+        <figure><div class="swatch sand"><img src="icon_hp.svg" width="48" height="48" alt="icon hp on sand"></div><figcaption>Sand · #c9a46a — 48 × 48</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>turret.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="turret.svg" width="96" height="96" alt="turret on dark"></div><figcaption>Dark · #2b2420 — 96 × 96</figcaption></figure>
+        <figure><div class="swatch sand"><img src="turret.svg" width="96" height="96" alt="turret on sand"></div><figcaption>Sand · #c9a46a — 96 × 96</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>drone.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="drone.svg" width="80" height="80" alt="drone on dark"></div><figcaption>Dark · #2b2420 — 80 × 80</figcaption></figure>
+        <figure><div class="swatch sand"><img src="drone.svg" width="80" height="80" alt="drone on sand"></div><figcaption>Sand · #c9a46a — 80 × 80</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>boss.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="boss.svg" width="256" height="192" alt="boss on dark"></div><figcaption>Dark · #2b2420 — 256 × 192</figcaption></figure>
+        <figure><div class="swatch sand"><img src="boss.svg" width="256" height="192" alt="boss on sand"></div><figcaption>Sand · #c9a46a — 256 × 192</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>truck.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="truck.svg" width="224" height="112" alt="truck on dark"></div><figcaption>Dark · #2b2420 — 224 × 112</figcaption></figure>
+        <figure><div class="swatch sand"><img src="truck.svg" width="224" height="112" alt="truck on sand"></div><figcaption>Sand · #c9a46a — 224 × 112</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>terminal.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="terminal.svg" width="96" height="96" alt="terminal on dark"></div><figcaption>Dark · #2b2420 — 96 × 96</figcaption></figure>
+        <figure><div class="swatch sand"><img src="terminal.svg" width="96" height="96" alt="terminal on sand"></div><figcaption>Sand · #c9a46a — 96 × 96</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>core.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="core.svg" width="64" height="64" alt="core on dark"></div><figcaption>Dark · #2b2420 — 64 × 64</figcaption></figure>
+        <figure><div class="swatch sand"><img src="core.svg" width="64" height="64" alt="core on sand"></div><figcaption>Sand · #c9a46a — 64 × 64</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>evac.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="evac.svg" width="320" height="320" alt="evac on dark"></div><figcaption>Dark · #2b2420 — 320 × 320</figcaption></figure>
+        <figure><div class="swatch sand"><img src="evac.svg" width="320" height="320" alt="evac on sand"></div><figcaption>Sand · #c9a46a — 320 × 320</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>turret_laser.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="turret_laser.svg" width="96" height="32" alt="turret laser on dark"></div><figcaption>Dark · #2b2420 — 96 × 32</figcaption></figure>
+        <figure><div class="swatch sand"><img src="turret_laser.svg" width="96" height="32" alt="turret laser on sand"></div><figcaption>Sand · #c9a46a — 96 × 32</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>turret_rocket.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="turret_rocket.svg" width="96" height="40" alt="turret rocket on dark"></div><figcaption>Dark · #2b2420 — 96 × 40</figcaption></figure>
+        <figure><div class="swatch sand"><img src="turret_rocket.svg" width="96" height="40" alt="turret rocket on sand"></div><figcaption>Sand · #c9a46a — 96 × 40</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>rocket.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="rocket.svg" width="48" height="20" alt="rocket on dark"></div><figcaption>Dark · #2b2420 — 48 × 20</figcaption></figure>
+        <figure><div class="swatch sand"><img src="rocket.svg" width="48" height="20" alt="rocket on sand"></div><figcaption>Sand · #c9a46a — 48 × 20</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>icon_laser.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="icon_laser.svg" width="48" height="48" alt="icon laser on dark"></div><figcaption>Dark · #2b2420 — 48 × 48</figcaption></figure>
+        <figure><div class="swatch sand"><img src="icon_laser.svg" width="48" height="48" alt="icon laser on sand"></div><figcaption>Sand · #c9a46a — 48 × 48</figcaption></figure>
+      </div>
+    </article>
+    <article>
+      <h2>icon_rocket.svg</h2>
+      <div class="samples">
+        <figure><div class="swatch dark"><img src="icon_rocket.svg" width="48" height="48" alt="icon rocket on dark"></div><figcaption>Dark · #2b2420 — 48 × 48</figcaption></figure>
+        <figure><div class="swatch sand"><img src="icon_rocket.svg" width="48" height="48" alt="icon rocket on sand"></div><figcaption>Sand · #c9a46a — 48 × 48</figcaption></figure>
+      </div>
+    </article>
+  </div>
+  <section class="tiles">
+    <h2>Seam review — repeating tiles, also at 2×</h2>
+    <figure><div class="repeat" role="img" aria-label="Repeated wall_block" style="background-image: url(wall_block.svg); background-size: 128px 128px"></div><figcaption>wall_block.svg — seamless x/y repeat</figcaption></figure>
+    <figure><div class="repeat" role="img" aria-label="Repeated ground_sand" style="background-image: url(ground_sand.svg); background-size: 256px 256px"></div><figcaption>ground_sand.svg — seamless x/y repeat</figcaption></figure>
+    <figure><div class="repeat" role="img" aria-label="Repeated ground_road" style="background-image: url(ground_road.svg); background-size: 256px 256px"></div><figcaption>ground_road.svg — seamless x/y repeat</figcaption></figure>
+  </section>
+</main>
+</body>
+</html>

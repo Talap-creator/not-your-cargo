@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <g stroke="#1d1714" stroke-width="2" stroke-linejoin="miter" shape-rendering="crispEdges">
+    <path fill="#ff7a1a" d="M5 3H27L29 5V27L27 29H5L3 27V5Z"/>
+    <path fill="#c9a46a" d="M3 7H29V10H3ZM3 22H29V25H3Z"/>
+    <path fill="#f4ead8" d="M10 11H23V21H10Z"/>
+    <!-- Slashed shipping-label brand: a symbol, not lettering. -->
+    <path stroke="#7a2420" stroke-width="3" d="M9 23L24 9"/>
+    <path stroke="#3b3330" d="M6 13V19M26 13V19"/>
+  </g>
+  <!-- One ragged bullet puncture, with an exposed-metal rim. -->
+  <path fill="#f4ead8" d="M5 4L8 3L11 5L10 8L7 9L4 7Z"/>
+  <path fill="#1d1714" d="M6 4L8 5L10 5L9 7L7 8L5 6Z"/>
+</svg>

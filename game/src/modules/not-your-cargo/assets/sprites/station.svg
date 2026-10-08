@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <g stroke="#1d1714" stroke-width="3" stroke-linejoin="miter">
+    <path fill="#3b3330" shape-rendering="crispEdges" d="M24 7H136L153 24V136L136 153H24L7 136V24Z"/>
+    <path fill="#c9a46a" shape-rendering="crispEdges" d="M28 16H132L144 28V132L132 144H28L16 132V28Z"/>
+    <path fill="#2b2420" shape-rendering="crispEdges" d="M66 37H103L127 60V100L103 123H66L43 100V60Z"/>
+    <path fill="none" stroke="#3aa0ff" stroke-width="4" d="M72 44H99L120 64V96L99 116H72"/>
+    <!-- Solar panel banks, in overhead projection. -->
+    <path fill="#2b2420" shape-rendering="crispEdges" d="M29 22H123V38H29ZM29 122H123V138H29Z"/>
+    <path stroke="#3aa0ff" stroke-width="2" shape-rendering="crispEdges" d="M34 30H118M45 24V36M61 24V36M77 24V36M93 24V36M109 24V36M34 130H118M45 124V136M61 124V136M77 124V136M93 124V136M109 124V136"/>
+    <path fill="#3b3330" shape-rendering="crispEdges" d="M29 62H57V98H29Z"/>
+    <circle cx="61" cy="80" r="29" fill="#f4ead8"/>
+    <path fill="#c9a46a" d="M42 60L61 80L42 100L34 90V70Z" stroke="none"/>
+    <path fill="none" stroke="#b48f58" stroke-width="2" d="M61 53V107M37 66L85 94M37 94L85 66"/>
+    <!-- Feed arm projects right from the center of the dish. -->
+    <path fill="#3b3330" shape-rendering="crispEdges" d="M58 76H96V84H58Z"/>
+    <path fill="#3aa0ff" shape-rendering="crispEdges" d="M89 72H100L106 80L100 88H89Z"/>
+    <path fill="#f4ead8" stroke="none" shape-rendering="crispEdges" d="M130 69L141 80L130 91V84H120V76H130Z"/>
+    <path stroke="#ff7a1a" stroke-width="4" d="M20 44V56M20 104V116"/>
+    <path stroke="#3aa0ff" stroke-width="4" d="M29 11H45M115 11H131M29 149H45M115 149H131"/>
+  </g>
+</svg>

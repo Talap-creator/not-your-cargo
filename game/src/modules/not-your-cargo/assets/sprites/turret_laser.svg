@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 16" width="48" height="16">
+  <!-- Pivot (8,8): center of the octagonal bearing. -->
+  <g stroke="#1d1714" stroke-width="2" stroke-linejoin="miter" shape-rendering="crispEdges">
+    <path fill="#3b3330" d="M1 5L5 1H11L15 5V11L11 15H5L1 11Z"/>
+    <path fill="#2b2420" d="M19 4H43V12H19Z"/>
+    <path fill="#f4ead8" d="M8 3H24L28 6V10L24 13H8Z"/>
+    <path stroke="#6ff0ff" d="M28 8H40"/>
+    <path stroke="#1d1714" d="M30 4V12M35 4V12"/>
+    <path fill="#3b3330" d="M40 2H46V14H40Z"/>
+    <path stroke="#6ff0ff" stroke-width="3" d="M44 5V11"/>
+    <path stroke="#2b2420" d="M17 6V10M21 6V10"/>
+  </g>
+  <circle fill="#1d1714" cx="8" cy="8" r="2"/>
+</svg>

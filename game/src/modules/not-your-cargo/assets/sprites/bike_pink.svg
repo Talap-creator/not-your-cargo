@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 48" width="64" height="48">
+  <g stroke="#1d1714" stroke-width="2" stroke-linejoin="miter" shape-rendering="crispEdges">
+    <!-- Four hover shoes; forward is +x. No integrated gun. -->
+    <path fill="#2b2420" d="M10 3H25L29 7V13H8V7ZM38 4H48L53 9V14H36V8ZM8 35H29V41L25 45H10L8 41ZM36 34H53V39L48 44H38L36 40Z"/>
+    <path stroke="#ff4fa3" d="M12 7H23M40 8H47M12 41H23M40 40H47"/>
+    <path fill="#3b3330" d="M6 16H18V32H6L3 28V20Z"/>
+    <path fill="#f4ead8" d="M17 12H42L54 17L61 24L54 31L42 36H17L10 31V17Z"/>
+    <path fill="#2b2420" d="M19 17H34L40 24L34 31H19L15 27V21Z"/>
+    <path fill="#ff4fa3" stroke="none" d="M22 13H42L51 17H39L35 19H22ZM22 35H42L51 31H39L35 29H22Z"/>
+    <path fill="#3b3330" d="M40 20H49L54 24L49 28H40Z"/>
+    <path fill="#ff4fa3" stroke="none" d="M44 22H48L51 24L48 26H44Z"/>
+    <path stroke="#ff7a1a" d="M6 21V27"/>
+    <path stroke="#c9a46a" d="M20 22H29M20 26H29"/>
+  </g>
+</svg>

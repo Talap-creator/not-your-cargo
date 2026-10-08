@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Flat edge color on all four sides; interior marks never clip. -->
+  <path fill="#c9a46a" d="M0 0H128V128H0Z"/>
+  <g fill="none" stroke="#b48f58" stroke-width="1" opacity="0.55" shape-rendering="crispEdges">
+    <path d="M14 23H24L29 28H38M24 23V17M29 28V34L34 39M81 77H91L97 83H109M91 77V68L87 64M97 83V91M38 102H48L52 106H62"/>
+  </g>
+  <g fill="#b48f58" opacity="0.6" shape-rendering="crispEdges">
+    <path d="M57 15H61V17H57ZM102 29H105V32H101V30ZM17 72H21V75H16V73ZM64 56H69V58H64ZM76 109H80V111H76ZM110 108H114V110H110ZM39 60H41V62H39Z"/>
+  </g>
+  <g fill="#f4ead8" opacity="0.15" shape-rendering="crispEdges">
+    <path d="M58 14H61V15H58ZM17 71H21V72H17ZM65 55H69V56H65ZM84 38H89V39H84ZM24 114H28V115H24Z"/>
+  </g>
+</svg>

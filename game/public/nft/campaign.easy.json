@@ -1,0 +1,26 @@
+{
+ "name": "NYC · Campaign · Easy",
+ "symbol": "NYCACH",
+ "description": "NOT YOUR CARGO achievement souvenir: All 5 missions on Easy. Minted by the player. Achievements are tracked in the player's game client — a souvenir, not a proof.",
+ "image": "https://qa0x2dy9.idos.games/nft/campaign.easy.png",
+ "external_url": "https://idosgames.com/app/QA0X2DY9/",
+ "attributes": [
+  {
+   "trait_type": "Achievement",
+   "value": "campaign.easy"
+  },
+  {
+   "trait_type": "Tier",
+   "value": "EASY"
+  }
+ ],
+ "properties": {
+  "files": [
+   {
+    "uri": "https://qa0x2dy9.idos.games/nft/campaign.easy.png",
+    "type": "image/png"
+   }
+  ],
+  "category": "image"
+ }
+}

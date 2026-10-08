@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Packed earth: horizontal wheel wear, continuous across x seams. -->
+  <path fill="#b48f58" d="M0 0H128V128H0Z"/>
+  <g fill="#c9a46a" opacity="0.28" shape-rendering="crispEdges">
+    <path d="M0 25H128V39H0ZM0 88H128V102H0Z"/>
+    <path d="M9 56H34V58H9ZM74 12H103V14H74ZM45 115H71V117H45Z"/>
+  </g>
+  <g fill="none" stroke="#3b3330" opacity="0.12" shape-rendering="crispEdges">
+    <path d="M0 33H128M0 94H128M15 71H30L36 77H49M30 71L34 65M89 48H99L105 54H116"/>
+  </g>
+  <g fill="#3b3330" opacity="0.17" shape-rendering="crispEdges">
+    <path d="M19 14H23V16H19ZM60 47H64V49H60ZM108 74H112V77H108ZM77 108H80V110H77ZM42 91H45V93H42Z"/>
+  </g>
+  <g fill="#c9a46a" opacity="0.5" shape-rendering="crispEdges">
+    <path d="M52 29H68V31H52ZM12 98H29V100H12ZM85 35H109V37H85ZM65 89H82V91H65Z"/>
+  </g>
+</svg>

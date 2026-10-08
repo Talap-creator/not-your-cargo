@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Matching edge bands form continuous metal seams in both axes. -->
+  <g shape-rendering="crispEdges">
+    <path fill="#3b3330" d="M0 0H64V64H0Z"/>
+    <path fill="#b48f58" d="M4 4H60V60H4Z"/>
+    <path fill="#c9a46a" d="M8 8H56V56H8Z"/>
+    <path fill="#3b3330" d="M0 0H64V2H0ZM0 62H64V64H0ZM0 0H2V64H0ZM62 0H64V64H62Z"/>
+    <path fill="#7a2420" d="M4 4H19V7H11V12H4ZM52 49H60V60H44V57H52Z"/>
+    <path fill="none" stroke="#b48f58" stroke-width="2" d="M18 8V18L24 24V32M18 18H12M56 38H46L41 43V56"/>
+    <path fill="#3b3330" stroke="#1d1714" stroke-width="2" d="M7 7H13V13H7ZM51 7H57V13H51ZM7 51H13V57H7ZM51 51H57V57H51Z"/>
+    <path fill="#b48f58" d="M29 14H35V16H29ZM12 38H16V40H12ZM30 48H36V50H30Z"/>
+  </g>
+</svg>
