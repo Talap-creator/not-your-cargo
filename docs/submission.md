@@ -35,7 +35,7 @@ Drafts for the three forms (Colosseum, Superteam Earn, iDos). Check the real for
 | Team | [names, roles, location — Kazakhstan track] |
 | Pitch video | [URL] |
 | Demo video | [URL] |
-| Presentation | [URL] |
+| Presentation | https://claude.ai/artifact/842KG8rNYwJQWjuvnxmYCX (private until shared from its Share menu; export to PDF/PPTX there) |
 | Prior work | Concept, spec, art and token prepared by the owner on 2026-10-06; all game code written 2026-10-06…08 with AI agents. See BUILD-HISTORY.md |
 | Demand / distribution | [Only real data: playtest results, players, followers. Leave blank rather than guess.] |
 
